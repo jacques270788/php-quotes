@@ -1,1 +1,19 @@
+oc project
+creation de template(verifier la presence du template.yaml dans le ripo)
+ls 
+oc create -f ./exemple.yaml   (exemle.yaml est le fichier du template present dans le ripo)
+oc get template 
+creation de l'appplication 
+oc new-app --template quates ("quates"le nom du template à executé )
+oc get all 
+oc get pvc 
 
+___________________
+envoie de donnees dans la basse de données qui a ete creer
+1- creation du fiche de données: quote_donnee.sql (avec les données)
+2-envoie du fichier dans le conteneur
+oc get pc ./quote_donnee.sql <nom_conteneur>:/tmp/quote_donnee.sql
+3- acceder à la base de donnees
+oc rsh -t <nom_du conteneur-ou-pod_de la base de donnée>
+4- Chargement des données
+mysq -u (utilisateur) -p (mot_de_passe) (nom_de_la_base) </tmp/quote.sql
